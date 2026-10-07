@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  --ink: #20231f;
+  --muted: #73766f;
+  --paper: #f6f4ef;
+  --white: #fffefa;
+  --green: #315c43;
+  --green-dark: #244733;
+  --lime: #d7e783;
+  --line: #e8e5dc;
+  --orange: #e99a51;
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(215, 231, 131, .23), transparent 35rem),
+    var(--paper);
+  color: var(--ink);
+}
+
+button, select, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+
+.app-shell {
+  width: min(100% - 36px, 760px);
+  margin: 0 auto;
+  padding: 22px 0 calc(36px + env(safe-area-inset-bottom));
+}
+
+.topbar, .brand, .game-heading, .section-heading, .turn-topline, .round-meta,
+.round-actions, .score-row, .category-preview, .category-preview span {
+  display: flex;
+  align-items: center;
+}
+
+.topbar { justify-content: space-between; min-height: 42px; }
+.brand { gap: 10px; color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: -.035em; }
+.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 12px; background: var(--lime); font-size: 18px; }
+.icon-button { border: 0; padding: 10px 14px; border-radius: 999px; background: #eceae2; color: var(--ink); font-weight: 700; cursor: pointer; }
+
+.screen { padding-top: 34px; }
+.setup-screen { max-width: 560px; margin: 0 auto; }
+.intro { padding: 20px 5px 26px; }
+.eyebrow { margin: 0 0 8px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+h1, h2, p { margin-top: 0; }
+h1, h2 { font-family: "Manrope", "Segoe UI", sans-serif; letter-spacing: -.055em; }
+h1 { margin-bottom: 14px; font-size: clamp(42px, 11vw, 64px); line-height: 1.02; }
+.intro h1 span { color: var(--green); }
+.intro-copy { max-width: 350px; margin-bottom: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+.panel { border: 1px solid rgba(42, 55, 39, .06); border-radius: 24px; background: var(--white); box-shadow: 0 12px 34px rgba(42, 45, 34, .045); }
+.setup-panel { padding: 24px; }
+.section-heading { justify-content: space-between; }
+.section-heading h2 { margin: 0; font-size: 23px; }
+.section-heading .eyebrow { margin-bottom: 5px; }
+.field-label { display: block; margin: 21px 0 8px; color: #42463f; font-size: 13px; font-weight: 700; }
+.input-control { width: 100%; min-height: 49px; padding: 0 14px; border: 1px solid var(--line); border-radius: 13px; background: #fff; color: var(--ink); font-size: 15px; }
+.input-control:focus, button:focus-visible { outline: 3px solid rgba(49, 92, 67, .28); outline-offset: 2px; }
+.team-fields { display: grid; gap: 9px; }
+.team-fields .field-label { margin-top: 18px; }
+.primary-button, .secondary-button { min-height: 52px; padding: 0 18px; border: 0; border-radius: 14px; font-weight: 800; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.primary-button { background: var(--green); color: #fff; }
+.primary-button:hover { background: var(--green-dark); }
+.secondary-button { background: #f0efe9; color: var(--ink); }
+.primary-button:active, .secondary-button:active { transform: scale(.98); }
+.full-button { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-top: 23px; text-align: left; }
+.save-note { margin: 12px 0 0; color: var(--muted); text-align: center; font-size: 12px; }
+.category-preview { flex-wrap: wrap; gap: 8px; padding: 19px 2px 0; }
+.category-preview span { min-height: 34px; padding: 0 11px; border: 1px solid #eae7de; border-radius: 999px; background: rgba(255, 254, 250, .65); color: #565a51; font-size: 12px; font-weight: 600; }
+
+.game-screen { max-width: 590px; margin: 0 auto; padding-top: 28px; }
+.game-heading { justify-content: space-between; margin-bottom: 17px; }
+.game-heading h1 { margin: 0; font-size: 39px; }
+.heading-period { color: var(--orange); }
+.turn-pill { padding: 9px 13px; border-radius: 999px; background: var(--lime); font-size: 12px; font-weight: 800; }
+.scoreboard { padding: 19px 20px 17px; }
+.compact-heading h2 { font-size: 19px; }
+.live-dot { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.live-dot::before { display: inline-block; width: 7px; height: 7px; margin: 0 6px 1px 0; border-radius: 50%; background: #80b859; content: ""; }
+.score-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-top: 16px; }
+.score-row { min-width: 0; min-height: 65px; justify-content: space-between; gap: 6px; padding: 10px 12px; border: 1px solid #efede6; border-radius: 14px; background: #fbfaf6; }
+.score-row.is-current { border-color: #b6c77b; background: #f5f8e9; }
+.score-name { overflow: hidden; color: #55594f; font-size: 12px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.score-points { flex-shrink: 0; font-family: "Manrope", sans-serif; font-size: 21px; font-weight: 800; }
+
+.turn-panel { margin-top: 15px; padding: 20px; }
+.turn-topline { justify-content: space-between; gap: 10px; margin-bottom: 13px; }
+.turn-team { color: var(--green); font-family: "Manrope", sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -.04em; text-align: right; }
+.turn-panel .field-label { margin-top: 0; }
+.ready-state { padding-top: 16px; text-align: center; }
+.phone-handoff { display: grid; width: 55px; height: 55px; margin: 0 auto 11px; place-items: center; border-radius: 19px; background: #f0f3df; font-size: 25px; }
+.ready-title { margin-bottom: 5px; font-family: "Manrope", sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -.04em; }
+.ready-copy { max-width: 340px; margin: 0 auto; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.ready-state .full-button { margin-top: 20px; }
+.active-state { padding-top: 19px; text-align: center; }
+.round-meta { justify-content: center; gap: 8px; }
+.category-tag, .points-tag { padding: 7px 11px; border-radius: 999px; background: #f0f3df; color: var(--green); font-size: 11px; font-weight: 800; }
+.points-tag { background: #fbefe1; color: #9b5b25; }
+.timer-wrap { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 17px 0 15px; }
+.timer { display: grid; width: 48px; height: 48px; place-items: center; border: 3px solid #dce8a4; border-radius: 50%; color: var(--green); font-family: "Manrope", sans-serif; font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.timer-wrap span { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .09em; }
+.timer.is-low { border-color: #efb98f; color: #b25d38; }
+.prompt-card { display: grid; min-height: 170px; align-content: center; padding: 20px; border-radius: 19px; background: #f5f4ed; }
+.prompt-card .eyebrow { color: #838579; }
+.prompt-text { max-width: 430px; margin: 0 auto; font-family: "Manrope", sans-serif; font-size: clamp(30px, 8vw, 44px); font-weight: 800; letter-spacing: -.05em; line-height: 1.16; }
+.actor-reminder { margin: 12px 0 0; color: var(--muted); font-size: 11px; }
+.round-actions { gap: 10px; margin-top: 18px; }
+.round-actions button { flex: 1; justify-content: center; }
+.game-footnote { margin: 12px 0 0; color: var(--muted); text-align: center; font-size: 12px; }
+.notice { margin-top: 16px; padding: 12px 14px; border: 1px solid #edc6a5; border-radius: 12px; background: #fff4e8; color: #754519; font-size: 13px; }
+.app-footer { padding-top: 28px; color: var(--muted); text-align: center; font-size: 12px; font-weight: 600; }
+
+@media (max-width: 440px) {
+  .app-shell { width: min(100% - 24px, 760px); padding-top: 14px; }
+  .screen { padding-top: 22px; }
+  .setup-panel { padding: 20px 17px; border-radius: 20px; }
+  .scoreboard, .turn-panel { padding: 17px 15px; border-radius: 20px; }
+  .score-list { gap: 6px; }
+  .score-row { display: block; min-height: 60px; padding: 9px 8px; text-align: center; }
+  .score-name { font-size: 11px; }
+  .score-points { margin-top: 3px; font-size: 19px; }
+  .prompt-card { min-height: 155px; }
+  .turn-team { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

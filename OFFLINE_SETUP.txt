@@ -1,0 +1,27 @@
+FAMILY CHARADES - ANDROID OFFLINE SETUP
+Created by saichait
+
+ONE-TIME SETUP
+1. Put the app files on a static HTTPS website.
+   Include index.html, styles.css, app.js, sw.js, manifest.webmanifest,
+   icon.svg, icon-192.png, and icon-512.png in the same directory.
+2. On your Android phone, connect to the internet and open the HTTPS
+   website in Chrome.
+3. Wait until the footer says "Ready for offline play".
+4. Open the Chrome menu, choose "Add to Home screen", then "Install".
+   The exact menu wording depends on your Chrome version.
+5. Enable airplane mode and open Family Charades from your home screen.
+   Start a game to confirm it works offline.
+
+AFTER SETUP
+All categories, prompts, timers, and scoring run on the phone.
+No PC connection, account, or internet is needed to play.
+Scores stay on this device and are not synced between phones.
+
+IMPORTANT
+Do not clear the site's storage: that removes offline files and scores.
+If Chrome removes site data, reconnect and repeat setup.
+Each phone needs its own one-time setup.
+A file:// link or an ordinary HTTP Wi-Fi address cannot install offline
+support on Android. Use HTTPS.
+This project is not yet published; there is no public installation URL yet.
